@@ -60,6 +60,7 @@ function createPipe(originalFnc, args) {
 }
 function originalFnc(string) {
     var aString = string.split(' ');
+
     for (var i = 0; i < aString.length; i++) {
         aString[i] = aString[i].charAt(0).toUpperCase() + aString[i].slice(1)
     }
@@ -75,10 +76,10 @@ function filterDigits(string) {
 
 function filterSpecial(string) {
 
-    return string.replace(/[\!\@\#\$\%\^\&\*\(\)\+\=]/g, '');
+    return string.replace(/[\!\@\#\$\%\^\&\*\(\)\+\=\-\/]/g, '');
 }
 
 function filterWhiteSpaces(string) {
 
-    return string.replace(/\s+/g," ");
+    return string.replace(/\s+/g, ' ');
 }
