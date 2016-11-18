@@ -22,7 +22,7 @@ window.setInterval = function (callback, delay) {
         throw new TypeError();
     }
 
-    var aArgs = aArgs;
+    var aArgs = arguments;
 
     setTimeout(delay, function () {
         callback.apply(this, aArgs);
