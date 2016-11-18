@@ -27,7 +27,9 @@
     var pipe = createPipe(originalFnc, [filterDigits, filterSpecial, filterWhiteSpaces]);
 
     setTimeout(1000, testTimeout);
+
     setInterval(testInterval, 2000);
+
     frozenFunc('1');
     frozenFunc('2');
     frozenFunc('3');
