@@ -11,10 +11,10 @@
 <script>
 
     function testTimeout() {
-        console.log('timeout');
+        console.log('timeout 1s');
     }
     function testInterval() {
-        console.log('interval');
+        console.log('interval 2s');
     }
     function fncToDelay(param) {
         console.log('Delayed run : ' + param);
@@ -36,9 +36,5 @@
     var pipe = createPipe(originalFnc, [filterDigits, filterSpecial, filterWhiteSpaces]);
 
     console.log(pipe('on345l90y    te**x((((t     h$&er@@@e'));
-//    console.log(filterDigits('on345l90y    te**x((((t     h$&er@@@e'));
-//    console.log(filterSpecial('only    te**x((((t     h$&er@@@e'));
-//    console.log(filterWhiteSpaces('only    text     here'));
-//    console.log(originalFnc('only text here'));
 </script>
 </html>

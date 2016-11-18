@@ -46,14 +46,17 @@ function freeze(delay, callback) {
     }
 }
 function createPipe(originalFnc, args) {
-    var aArgs = arguments;
     var result;
 
-    for (var i = 0; i < aArgs.length; i++) {
-        result = args[0].apply(this, args);
-    }
+    return function () {
+        var aArgs = arguments;
 
-    originalFnc.call(this, result);
+        for (var i = 0; i < args.length; i++) {
+            result = args[i].apply(this, result ? [result] : aArgs);
+        }
+
+        return originalFnc.apply(this, [result]);
+    };
 }
 function originalFnc(string) {
     var aString = string.split(' ');
@@ -72,7 +75,7 @@ function filterDigits(string) {
 
 function filterSpecial(string) {
 
-    return string.replace(/[\!\@\#\$\%\^\&\*\(\)\+\=]*/g, '');
+    return string.replace(/[\!\@\#\$\%\^\&\*\(\)\+\=]/g, '');
 }
 
 function filterWhiteSpaces(string) {
